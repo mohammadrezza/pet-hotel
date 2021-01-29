@@ -1,0 +1,1590 @@
+{
+	"info": {
+		"_postman_id": "188b82ce-0a10-4f48-9b82-9cea3bd4efd7",
+		"name": "Pet Hotel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pets",
+			"item": [
+				{
+					"name": "Create new pet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{customer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"bob\",\n    \"type\":\"DOG\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pets",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get pets by customer",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"bob\",\n    \"type\":\"DOG\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/pets",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"pets"
+									]
+								}
+							},
+							"status": "CREATED",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "90"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 20:09:04 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"type\": \"DOG\",\n        \"identifier\": \"b17a16d9d06948c5bd26f5413ae5c4ef\",\n        \"name\": \"bob\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update pet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{customer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pet_id\":\"44fd0223158547a898bb0c712ed301f0\",\n    \"name\":\"Joe\",\n    \"type\":\"CAT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pets",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update pet successfuly",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pet_id\":\"44fd0223158547a898bb0c712ed301f0\",\n    \"name\":\"Joe\",\n    \"type\":\"CAT\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/pets",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"pets"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "105"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 20:06:23 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"identifier\": \"44fd0223158547a898bb0c712ed301f0\",\n        \"room_id\": -1,\n        \"type\": \"CAT\",\n        \"name\": \"Joe\"\n    }\n}"
+						},
+						{
+							"name": "pet not found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pet_id\":\"be6fc6884ca14cbd9f2358f99811ee17\",\n    \"name\":\"Joe\",\n    \"type\":\"CAT\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/pets",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"pets"
+									]
+								}
+							},
+							"status": "NOT FOUND",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "27"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 20:04:26 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Pet not found!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete pet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{manager_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets/:pet_id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								":pet_id"
+							],
+							"variable": [
+								{
+									"key": "pet_id",
+									"value": "be6fc6884ca14cbd9f2358f99811ee17"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "forbidden delete by staff",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/pets/:pet_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"pets",
+										":pet_id"
+									],
+									"variable": [
+										{
+											"key": "pet_id",
+											"value": "be6fc6884ca14cbd9f2358f99811ee17"
+										}
+									]
+								}
+							},
+							"status": "FORBIDDEN",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 19:51:45 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "successful delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/pets/:pet_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"pets",
+										":pet_id"
+									],
+									"variable": [
+										{
+											"key": "pet_id",
+											"value": "be6fc6884ca14cbd9f2358f99811ee17"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 19:52:24 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Move pet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{manager_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"new_room_id\":10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pets/:pet_id/move",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								":pet_id",
+								"move"
+							],
+							"variable": [
+								{
+									"key": "pet_id",
+									"value": "b17a16d9d06948c5bd26f5413ae5c4ef"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "move successfully",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"new_room_id\":10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/pets/:pet_id/move",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"pets",
+										":pet_id",
+										"move"
+									],
+									"variable": [
+										{
+											"key": "pet_id",
+											"value": "b17a16d9d06948c5bd26f5413ae5c4ef"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 20:14:57 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Get pets",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{customer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets?page=1&size=5&q=b",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "q",
+									"value": "b"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get  pets with pagination & search",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/pets?page=1&size=5&q=b",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"pets"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										},
+										{
+											"key": "q",
+											"value": "b"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "600"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 19:50:25 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"identifier\": \"44fd0223158547a898bb0c712ed301f0\",\n            \"type\": \"DOG\",\n            \"updated_at\": \"2020-12-22 19:42:16\",\n            \"owner\": {\n                \"fullname\": \"mohammadreza\"\n            },\n            \"created_at\": \"2020-12-22 19:42:16\",\n            \"name\": \"billy\"\n        },\n        {\n            \"identifier\": \"be6fc6884ca14cbd9f2358f99811ee17\",\n            \"type\": \"DOG\",\n            \"updated_at\": \"2020-12-22 19:45:29\",\n            \"owner\": {\n                \"fullname\": \"mohammadreza\"\n            },\n            \"created_at\": \"2020-12-22 19:45:29\",\n            \"name\": \"bob\"\n        },\n        {\n            \"identifier\": \"29f459a85da847a2adac4240a9f99441\",\n            \"type\": \"DOG\",\n            \"updated_at\": \"2020-12-22 19:47:59\",\n            \"owner\": {\n                \"fullname\": \"mohammadreza\"\n            },\n            \"created_at\": \"2020-12-22 19:47:59\",\n            \"name\": \"brayan\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Check-in",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staff_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"room_id\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pets/:pet_id/check-in",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								":pet_id",
+								"check-in"
+							],
+							"variable": [
+								{
+									"key": "pet_id",
+									"value": "b17a16d9d06948c5bd26f5413ae5c4ef"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Check-in by staff",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"room_id\":2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/pets/:pet_id/check-in",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"pets",
+										":pet_id",
+										"check-in"
+									],
+									"variable": [
+										{
+											"key": "pet_id",
+											"value": "b17a16d9d06948c5bd26f5413ae5c4ef"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 20:11:14 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "forbbiden check-in by customer",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"room_id\":2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/pets/:pet_id/check-in",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"pets",
+										":pet_id",
+										"check-in"
+									],
+									"variable": [
+										{
+											"key": "pet_id",
+											"value": "b17a16d9d06948c5bd26f5413ae5c4ef"
+										}
+									]
+								}
+							},
+							"status": "FORBIDDEN",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 20:10:30 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Check-out",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{manager_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets/:pet_id/check-out",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								":pet_id",
+								"check-out"
+							],
+							"variable": [
+								{
+									"key": "pet_id",
+									"value": "b17a16d9d06948c5bd26f5413ae5c4ef"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successful check-out",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/pets/:pet_id/check-out",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"pets",
+										":pet_id",
+										"check-out"
+									],
+									"variable": [
+										{
+											"key": "pet_id",
+											"value": "b17a16d9d06948c5bd26f5413ae5c4ef"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 20:14:09 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"staff@gmail.com\",\n    \"password\":\"2wsx@WSX\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "incorrect username/password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"manager@gmail.com\",\n    \"password\":\"1qaz!QAZ333\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "UNAUTHORIZED",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "37"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 19:15:16 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Incorrect Email/Password\"\n}"
+						},
+						{
+							"name": "invalid email address",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"manager@gmail.c\",\n    \"password\":\"1qaz!QAZ333\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "BAD REQUEST",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 19:14:30 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": {\n        \"email\": [\n            \"Not a valid email address.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "user not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"temp@gmail.com\",\n    \"password\":\"1qaz!QAZ333\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "NOT FOUND",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "28"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 19:13:26 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"User not found!\"\n}"
+						},
+						{
+							"name": "multiple fail attempts",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"mrmirhajian1996@gmail.com\",\n    \"password\":\"invalid_password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "FORBIDDEN",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "101"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 19:29:42 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Your account is locked due to too many failed login attempts, contact manager to unblock\"\n}"
+						},
+						{
+							"name": "successful login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"manager@gmail.com\",\n    \"password\":\"1qaz!QAZ\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "379"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 19:16:16 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDg2NjQ1NzYsIm5iZiI6MTYwODY2NDU3NiwianRpIjoiOWU5NWY2ODctYTYwZC00MjY5LWI3YjgtYzY0MzNkNThhNTIwIiwiZXhwIjoxNjA4NzUwOTc2LCJpZGVudGl0eSI6ImI3Y2I1YjcwNGEyYjQxYjNiODRjYTJhM2Y1M2ZiZDVlIiwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIiwidXNlcl9jbGFpbXMiOnsicm9sZSI6Ik1BTkFHRVIifX0.qn4s25QFUO2o7VPQO7PT_m6mHndBz4ABePNJGlZ5sQ0\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Customer register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n    \"fullname\":\"mohammadreza\",\n    \"email\":\"mrmirhajian1996@gmail.com\",\n    \"password\":\"3edc#EDC\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/register",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successful registration",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \n    \"fullname\":\"mohammadreza\",\n    \"email\":\"mrmirhajian1996@gmail.com\",\n    \"password\":\"3edc#EDC\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/register",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "CREATED",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "126"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 19:26:41 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"email\": \"mrmirhajian1996@gmail.com\",\n        \"fullname\": \"mohammadreza\",\n        \"identifier\": \"b8ddba601dbf414d8115438950c73a78\"\n    }\n}"
+						},
+						{
+							"name": "duplicate registration",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \n    \"fullname\":\"mohammadreza\",\n    \"email\":\"mrmirhajian1996@gmail.com\",\n    \"password\":\"3edc#EDC\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/register",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "CONFLICT",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 19:27:14 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"User with this email address already exist\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create staff",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{manager_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n    \"fullname\":\"miley\",\n    \"email\":\"staff@gmail.com\",\n    \"password\":\"2wsx@WSX\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/staff",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"staff"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successful creation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \n    \"fullname\":\"miley\",\n    \"email\":\"staff@gmail.com\",\n    \"password\":\"2wsx@WSX\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/staff",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"staff"
+									]
+								}
+							},
+							"status": "CREATED",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "109"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 19:22:09 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"fullname\": \"miley\",\n        \"email\": \"staff@gmail.com\",\n        \"identifier\": \"3f7283a0335442abaf72dbe2182e1d14\"\n    }\n}"
+						},
+						{
+							"name": "unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \n    \"fullname\":\"mamad\",\n    \"email\":\"customer@gmail.com\",\n    \"password\":\"2wsx@WSX\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/staff",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"staff"
+									]
+								}
+							},
+							"status": "UNAUTHORIZED",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 19:19:45 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Get user info",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{customer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get account details",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/users",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "126"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 19:37:25 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"email\": \"mrmirhajian1996@gmail.com\",\n        \"fullname\": \"mohammadreza\",\n        \"identifier\": \"b8ddba601dbf414d8115438950c73a78\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Invite",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{manager_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n    \"name\":\"bob\",\n    \"email\":\"golaby98@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/invite",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"invite"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successful invitation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \n    \"name\":\"bob\",\n    \"email\":\"golaby98@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/invite",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"invite"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 19:25:11 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Update customer status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{manager_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"active\":true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/:user_id/status",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								":user_id",
+								"status"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "b8ddba601dbf414d8115438950c73a78"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "activate customer account",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"active\":true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/:user_id/status",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										":user_id",
+										"status"
+									],
+									"variable": [
+										{
+											"key": "user_id",
+											"value": "b8ddba601dbf414d8115438950c73a78"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.6.9"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Dec 2020 19:32:26 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	]
+}

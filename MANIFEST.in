@@ -1,0 +1,6 @@
+recursive-include app/*
+recursive-include app/pet *
+recursive-include app/third_party *
+recursive-include app/user *
+recursive-include app/templates *
+recursive-include app/static *

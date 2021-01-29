@@ -1,0 +1,8 @@
+Flask==1.1.2
+Flask-PyMongo==2.3.0
+Flask-JWT-Extended==3.25.0
+Flask-Testing==0.8.0
+Flask-Bcrypt==0.7.1
+Flask-API==2.0
+Marshmallow==3.9.1
+requests==2.25.1
